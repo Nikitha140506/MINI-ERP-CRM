@@ -199,27 +199,3 @@ model Purchase {
 
   product Product @relation(fields: [productId], references: [id])
 }
-
-{
-    "success": true,
-    "data": {
-        "customers": 2,
-        "products": 4,
-        "sales": 3,
-        "invoices": 2,
-        "revenue": 123900,
-        "lowStock": [
-            {
-                "id": "cmrwd6e420001u7pgbgu003v7",
-                "name": "mobile",
-                "description": "samsung",
-                "price": 120000,
-                "stock": 4,
-                "category": "Smart Phone",
-                "sku": null,
-                "supplierId": null,
-                "createdAt": "2026-07-22T17:36:24.013Z",
-                "updatedAt": "2026-07-24T17:55:27.990Z"
-            }
-        ]
-    }
