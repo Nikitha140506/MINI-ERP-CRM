@@ -69,7 +69,7 @@ export const getSupplierByIdController = async (
 ) => {
   try {
 
-    const supplier = await getSupplierByIdService(req.params.id);
+    const supplier = await getSupplierByIdService(req.params.id as string);
 
     if (!supplier) {
       return res.status(404).json({
@@ -103,7 +103,7 @@ export const updateSupplierController = async (
   try {
 
     const supplier = await updateSupplierService(
-      req.params.id,
+      req.params.id as string,
       req.body
     );
 
@@ -132,7 +132,7 @@ export const deleteSupplierController = async (
 ) => {
   try {
 
-    await deleteSupplierService(req.params.id);
+    await deleteSupplierService(req.params.id as string);
 
     res.json({
       success: true,

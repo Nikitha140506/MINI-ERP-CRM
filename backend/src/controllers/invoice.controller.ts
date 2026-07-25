@@ -136,7 +136,7 @@ try{
 
 const result =
 await deleteInvoiceService(
-req.params.id
+req.params.id as string
 );
 
 

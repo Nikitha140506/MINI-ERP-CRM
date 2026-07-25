@@ -1,6 +1,19 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
+import { User } from "@prisma/client";
 
+declare global {
+    namespace Express {
+        interface Request {
+            user?: {
+                id:string;
+                role:string;
+            }
+        }
+    }
+}
+
+export {};
 
 const authMiddleware = (
     req: Request,

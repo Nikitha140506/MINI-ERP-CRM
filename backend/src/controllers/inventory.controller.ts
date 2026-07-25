@@ -41,7 +41,7 @@ export const addStock = async (
         const { quantity } = req.body;
 
         const product = await addStockService(
-            req.params.id,
+            req.params.id as string,
             Number(quantity)
         );
 
@@ -71,7 +71,7 @@ export const removeStock = async (
         const { quantity } = req.body;
 
         const product = await removeStockService(
-            req.params.id,
+            req.params.id as string,
             Number(quantity)
         );
 

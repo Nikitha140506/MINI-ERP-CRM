@@ -152,8 +152,7 @@ try{
 const product =
 await getProductByIdService(
 
-req.params.id
-
+req.params.id as string
 );
 
 
@@ -211,7 +210,7 @@ try{
 const product =
 await updateProductService(
 
-req.params.id,
+req.params.id as string,
 
 req.body
 
@@ -275,7 +274,7 @@ try{
 const result =
 await deleteProductService(
 
-req.params.id
+req.params.id as string
 
 );
 

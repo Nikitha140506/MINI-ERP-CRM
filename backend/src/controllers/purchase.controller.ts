@@ -164,7 +164,7 @@ export const getPurchaseByIdController = async(
         const purchase =
         await getPurchaseByIdService(
 
-            req.params.id
+            req.params.id as string
 
         );
 
@@ -224,7 +224,7 @@ export const deletePurchaseController = async(
         const result =
         await deletePurchaseService(
 
-            req.params.id
+            req.params.id as string
 
         );
 

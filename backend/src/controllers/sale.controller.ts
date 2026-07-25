@@ -88,7 +88,7 @@ export const getSaleById = async (
   try{
 
     const sale = await getSaleByIdService(
-      req.params.id
+      req.params.id as string
     );
 
 
@@ -120,7 +120,7 @@ export const deleteSale = async (
   try{
 
     const result = await deleteSaleService(
-      req.params.id
+      req.params.id as string
     );
 
 

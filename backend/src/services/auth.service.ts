@@ -9,7 +9,7 @@ export const registerService = async (
     name:string,
     email:string,
     password:string,
-    role?: "ADMIN" | "SALES" | "MANAGER"
+    role?: "ADMIN" | "SALES" | "WAREHOUSE" | "ACCOUNTS"
 )=>{
 
     const existingUser = await prisma.user.findUnique({

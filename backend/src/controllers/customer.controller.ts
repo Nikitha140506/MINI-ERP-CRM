@@ -39,11 +39,7 @@ export const createCustomerController = async(
             address
         );
 
-await logActivity(
-  req.user.id,
-  "Customer",
-  `Created customer ${customer.name}`
-);
+
 
         res.status(201).json({
 
@@ -145,7 +141,7 @@ export const getCustomerByIdController = async(
         const customer =
         await getCustomerByIdService(
 
-            req.params.id
+            req.params.id as string
 
         );
 
@@ -201,7 +197,7 @@ export const updateCustomerController = async(
         const customer =
         await updateCustomerService(
 
-            req.params.id,
+            req.params.id as string,
 
             req.body
 
@@ -261,7 +257,7 @@ export const deleteCustomerController = async(
         const result =
         await deleteCustomerService(
 
-            req.params.id
+            req.params.id as string
 
         );
 
