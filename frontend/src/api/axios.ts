@@ -3,7 +3,7 @@ import axios from "axios";
 
 const API = axios.create({
 
-baseURL: "https://mini-erp-backend-geox.onrender.com/api"
+baseURL: "https://mini-erp-backend-urjr.onrender.com/api"
 
 });
 
