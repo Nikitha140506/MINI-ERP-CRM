@@ -1,0 +1,225 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  SALES
+  WAREHOUSE
+  ACCOUNTS
+}
+
+model User {
+  id String @id @default(cuid())
+
+  name String
+
+  email String @unique
+
+  password String
+
+  role Role @default(SALES)
+
+  createdAt DateTime @default(now())
+
+  updatedAt DateTime @updatedAt
+
+  activityLogs ActivityLog[]
+}
+
+model Customer {
+  id String @id @default(cuid())
+
+  name String
+
+  email String @unique
+
+  phone String
+
+  address String
+
+  gstNumber String?
+
+  createdAt DateTime @default(now())
+
+  updatedAt DateTime @updatedAt
+
+  sales Sale[]
+
+  invoices Invoice[]
+}
+
+model Supplier {
+  id String @id @default(cuid())
+
+  companyName String
+
+  contactPerson String
+
+  email String @unique
+
+  phone String
+
+  gstNumber String?
+
+  address String
+
+  createdAt DateTime @default(now())
+
+  updatedAt DateTime @updatedAt
+
+  products Product[]
+
+  purchases Purchase[]
+}
+
+model Product {
+  id String @id @default(cuid())
+
+  name String
+
+  description String?
+
+  price Float
+
+  stock Int
+
+  category String
+
+  sku String? @unique
+
+  supplierId String?
+
+  supplier Supplier? @relation(fields: [supplierId], references: [id])
+
+  createdAt DateTime @default(now())
+
+  updatedAt DateTime @updatedAt
+
+  sales Sale[]
+
+  invoiceItems InvoiceItem[]
+
+  purchases Purchase[]
+}
+
+model Sale {
+  id String @id @default(cuid())
+
+  customerId String
+
+  productId String
+
+  quantity Int
+
+  totalPrice Float
+
+  createdAt DateTime @default(now())
+
+  customer Customer @relation(fields: [customerId], references: [id])
+
+  product Product @relation(fields: [productId], references: [id])
+}
+
+model Invoice {
+  id String @id @default(cuid())
+
+  invoiceNo String @unique
+
+  customerId String
+
+  subtotal Float
+
+  tax Float
+
+  total Float
+
+  status String @default("PAID")
+
+  createdAt DateTime @default(now())
+
+  customer Customer @relation(fields: [customerId], references: [id])
+
+  items InvoiceItem[]
+}
+
+model InvoiceItem {
+  id String @id @default(cuid())
+
+  invoiceId String
+
+  productId String
+
+  quantity Int
+
+  price Float
+
+  total Float
+
+  invoice Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+
+  product Product @relation(fields: [productId], references: [id])
+}
+
+model ActivityLog {
+  id String @id @default(cuid())
+
+  action String
+
+  module String
+
+  userId String
+
+  user User @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+}
+
+model Purchase {
+  id String @id @default(cuid())
+
+  supplierId String
+
+  productId String
+
+  quantity Int
+
+  purchasePrice Float
+
+  totalAmount Float
+
+  createdAt DateTime @default(now())
+
+  supplier Supplier @relation(fields: [supplierId], references: [id])
+
+  product Product @relation(fields: [productId], references: [id])
+}
+
+{
+    "success": true,
+    "data": {
+        "customers": 2,
+        "products": 4,
+        "sales": 3,
+        "invoices": 2,
+        "revenue": 123900,
+        "lowStock": [
+            {
+                "id": "cmrwd6e420001u7pgbgu003v7",
+                "name": "mobile",
+                "description": "samsung",
+                "price": 120000,
+                "stock": 4,
+                "category": "Smart Phone",
+                "sku": null,
+                "supplierId": null,
+                "createdAt": "2026-07-22T17:36:24.013Z",
+                "updatedAt": "2026-07-24T17:55:27.990Z"
+            }
+        ]
+    }

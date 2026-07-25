@@ -1,0 +1,38 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@prisma/client": "^6.16.2",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.x.x",
+    "express": "^5.x.x",
+    "jsonwebtoken": "^9.0.3",
+    "react-icons": "^5.7.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/cors": "^2.x.x",
+    "@types/express": "^5.x.x",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.x.x",
+    "prisma": "^6.16.2",
+    "ts-node-dev": "^2.x.x",
+    "typescript": "^5.9.2"
+  },
+  "allowScripts": {
+    "prisma@7.9.0": true,
+    "@prisma/engines@7.9.0": true
+  }
+}

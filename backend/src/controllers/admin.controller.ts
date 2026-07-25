@@ -1,0 +1,18 @@
+import { Request, Response } from "express";
+
+export const adminDashboard = (
+    req: Request,
+    res: Response
+) => {
+
+    res.status(200).json({
+
+        success: true,
+
+        message: "Welcome Admin Dashboard",
+
+        user: (req as any).user
+
+    });
+
+};
