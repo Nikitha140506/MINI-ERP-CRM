@@ -48,22 +48,16 @@ loadActivities();
 
 
 
-
 return(
 
 
 <div
 
 className={`
-
 mt-8
-
 rounded-3xl
-
 shadow-xl
-
 p-6
-
 
 ${
 dark
@@ -78,21 +72,11 @@ dark
 >
 
 
-<h2
-
-className="
-text-xl
-font-bold
-mb-6
-"
-
->
+<h2 className="text-xl font-bold mb-6">
 
 Recent Activities
 
 </h2>
-
-
 
 
 
@@ -104,17 +88,9 @@ Recent Activities
 activities.length === 0 ?
 
 
-<p
-
-className={`
-
-text-sm
-
-${dark ? "text-gray-400":"text-gray-500"}
-
-`}
-
->
+<p className={`text-sm ${
+dark ? "text-gray-400":"text-gray-500"
+}`}>
 
 No recent activities
 
@@ -169,35 +145,20 @@ mt-2
 
 
 
-<p
+<p className={`text-sm ${
+dark ? "text-gray-400":"text-gray-500"
+}`}>
 
-className={`
-
-text-sm
-
-${dark ? "text-gray-400":"text-gray-500"}
-
-`}
-
->
-
-{
-activity.type
-}
+{activity.type}
 
 &nbsp; • &nbsp;
 
-{
-new Date(activity.time)
-.toLocaleString()
-}
-
+{new Date(activity.time).toLocaleString()}
 
 </p>
 
 
 </div>
-
 
 
 </div>
@@ -210,7 +171,6 @@ new Date(activity.time)
 
 
 </div>
-
 
 
 </div>

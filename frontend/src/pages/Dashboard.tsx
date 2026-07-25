@@ -51,8 +51,6 @@ const [products,setProducts]=useState<any[]>([]);
 
 const [analytics,setAnalytics]=useState<any>(null);
 
-const [activities,setActivities]=useState<any[]>([]);
-
 const loadData = async()=>{
 
 try{
@@ -66,7 +64,7 @@ const product = await API.get("/products");
 
 const analyticsRes = await API.get("/analytics");
 
-const activityRes = await API.get("/activity");
+
 
 
 
@@ -93,10 +91,6 @@ analyticsRes.data.analytics
 );
 
 
-
-setActivities(
-activityRes.data.activities || []
-);
 
 
 
@@ -1329,11 +1323,7 @@ analytics && (
 
 
 
-<ActivityTimeline
-
-activities={activities}
-
-/>
+<ActivityTimeline/>
 
 
 </div>

@@ -1,11 +1,12 @@
 import { Navigate } from "react-router-dom";
+import type { ReactElement } from "react";
 
 
 interface Props {
 
-    children: JSX.Element;
+    children: ReactElement;
 
-    allowedRoles:string[];
+    allowedRoles: string[];
 
 }
 
@@ -17,7 +18,7 @@ function RoleRoute({
 
     allowedRoles
 
-}:Props){
+}: Props) {
 
 
     const user = JSON.parse(
@@ -27,7 +28,7 @@ function RoleRoute({
     );
 
 
-    if(!allowedRoles.includes(user.role)){
+    if (!allowedRoles.includes(user.role)) {
 
         return <Navigate to="/dashboard" replace />;
 
@@ -35,7 +36,6 @@ function RoleRoute({
 
 
     return children;
-
 
 }
 

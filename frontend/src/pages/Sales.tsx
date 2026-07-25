@@ -3,7 +3,7 @@ import API from "../api/axios";
 import { toast } from "react-toastify";
 import Layout from "../layouts/Layout";
 
-import Navbar from "../components/Navbar";
+
 function Sales(){
 
 

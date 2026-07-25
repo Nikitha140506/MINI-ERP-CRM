@@ -1,4 +1,4 @@
-import { FaMoon, FaSun, FaSignOutAlt, FaUser } from "react-icons/fa";
+import { FaMoon, FaSun, FaSignOutAlt } from "react-icons/fa";
 import { useTheme } from "../context/ThemeContext";
 import Layout from "../layouts/Layout";
 import { useNavigate } from "react-router-dom";
